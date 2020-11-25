@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-                    Добро пожаловать! {{Auth::user()->name}}
+                    Привет, {{Auth::user()->name}}!
                 </div>
             </div>
         </div>

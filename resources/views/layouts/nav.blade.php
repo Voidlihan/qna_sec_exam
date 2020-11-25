@@ -29,14 +29,7 @@
                             <a href="/threads/create">Новая тема</a>
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/">Все темы</a></li>
-
-                        @if (auth()->check())
-                            <li><a href="/?by={{ auth()->user()->name }}">Мои темы</a></li>
-                        @endif
-
-                        <li><a href="/?popular=1">Популярные темы</a></li>
-                        <li><a href="/?answered=1">Темы с сообщениями</a></li>
+                        <li><a href="/threads/index">Все темы</a></li>
                     </ul>
                 </li>
 
@@ -70,9 +63,6 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('profile', Auth::user()) }}">Мой профиль</a>
-                            </li>
 
                             <li>
                                 <a href="{{ route('logout') }}"

@@ -11,15 +11,6 @@
                                 <a href="{{ route('profile', $thread->creator) }}">{{ $thread->creator->name }}</a> опубликовал:
                                 {{ $thread->title }}
                             </span>
-
-                            @can ('update', $thread)
-                                <form action="{{ $thread->path() }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-
-                                    <button type="submit" class="btn btn-link">Удалить тему</button>
-                                </form>
-                            @endcan
                         </div>
                     </div>
 
@@ -29,7 +20,7 @@
                 </div>
 
                 @foreach ($replies as $reply)
-                    @include ('threads.reply')
+                    @include ('reply')
                 @endforeach
 
                 {{ $replies->links() }}

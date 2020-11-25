@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\FavoritesController;
-use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\ThreadsController;
 use App\Http\Controllers\RepliesController;
 use App\Http\Controllers\ChannelsController;
@@ -28,10 +28,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('threads/index', [ThreadsController::class, 'index']);
 Route::get('threads/create', [ThreadsController::class, 'create'])->name('create');
-Route::get('threads/{channel}/{thread}', [ThreadsController::class, 'show'])->name('show');
-Route::delete('threads/{channel}/{thread}', [ThreadsController::class, 'destroy']);
+Route::get('threads/{channel}/{thread}', [ThreadsController::class, 'show']);
+Route::delete('threads/{channel}/{thread}', [ThreadsController::class, 'destroy'])->name('destroy');
 Route::post('threads', [ThreadsController::class, 'store']);
-Route::get('threads/{channel}', [ThreadsController::class, 'index']);
+Route::get('threads/{channel}', [ThreadsController::class, 'index'])->name('index');
 Route::post('/threads/{channel}/{thread}/replies', [RepliesController::class, 'store']);
 Route::delete('/replies/{reply}', [RepliesController::class, 'destroy']);
 Route::get('channels/create', [ChannelsController::class, 'create'])->name('channels.create');
